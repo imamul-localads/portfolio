@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TODO: replace VIDEO_URL_HERE with the real YouTube link after upload -->
+<title>Your LSA Dashboard Is Disappearing (Do This Before It's Gone)</title>
+<meta name="description" content="The complete case study: Google is moving Local Service Ads into Google Ads as Performance Max. Your old reports don't transfer — the six downloads to save, the 14-day warning, and the three things to do this week.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your LSA Dashboard Is Disappearing (Do This Before It's Gone)">
+<meta property="og:description" content="The complete case study: Google is moving Local Service Ads into Google Ads as Performance Max. Your old reports don't transfer — the six downloads to save, the 14-day warning, and the three things to do this week.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/lsa-dashboard-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your LSA Dashboard Is Disappearing (Do This Before It's Gone)">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-frame{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.1rem;
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-frame .play{width:96px;height:96px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 0 0 0 rgba(245,197,102,.5);animation:pulse 2.4s infinite}
+  .video-frame .play::after{content:"";border-left:26px solid #0a0f1e;border-top:15px solid transparent;
+    border-bottom:15px solid transparent;margin-left:8px}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(245,197,102,.45)}70%{box-shadow:0 0 0 26px rgba(245,197,102,0)}100%{box-shadow:0 0 0 0 rgba(245,197,102,0)}}
+  .video-note{font-size:1.05rem;color:var(--muted);text-align:center;max-width:520px;padding:0 1rem}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:2.8rem 0}
+  @media(max-width:640px){.versus{grid-template-columns:1fr}}
+  .camp{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:2rem 1.7rem;position:relative;overflow:hidden}
+  .camp::before{content:"";position:absolute;top:0;left:0;right:0;height:5px}
+  .camp.a::before{background:var(--coral)} .camp.b::before{background:var(--green)}
+  .camp h3{font-size:1.5rem;margin-bottom:1.2rem}
+  .camp.a h3{color:var(--coral)} .camp.b h3{color:var(--green)}
+  .camp .row{display:flex;justify-content:space-between;align-items:baseline;padding:.65rem 0;
+    border-bottom:1px dashed var(--line);font-size:1.12rem}
+  .camp .row:last-child{border-bottom:none}
+  .camp .row .v{font-weight:800;font-size:1.35rem}
+  .camp.a .row .v{color:var(--coral)} .camp.b .row .v{color:var(--green)}
+  .camp .verdict{margin-top:1.2rem;font-size:1.02rem;color:var(--muted);line-height:1.6}
+  .camp .verdict strong{color:var(--ink)}
+
+  .statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:2.8rem 0}
+  @media(max-width:640px){.statgrid{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.8rem 1.4rem;text-align:center}
+  .stat .num{font-size:2.6rem;font-weight:800;line-height:1.1;margin-bottom:.5rem}
+  .stat.g .num{color:var(--green)} .stat.a .num{color:var(--amber)} .stat.c .num{color:var(--coral)}
+  .stat p{font-size:1.02rem;color:var(--muted);margin:0;line-height:1.6}
+
+  .check{margin:2.4rem 0;display:flex;flex-direction:column;gap:1.1rem}
+  .q{background:rgba(245,197,102,.06);border:1px solid rgba(245,197,102,.25);border-radius:14px;
+    padding:1.5rem 1.7rem;font-size:1.25rem;font-weight:600}
+  .q span{color:var(--gold);margin-right:.6rem}
+  .q small{display:block;font-weight:400;color:var(--muted);font-size:1.05rem;margin-top:.4rem;line-height:1.7}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);display:block}
+  .soc .sic{width:64px;height:64px;margin:0 auto 1rem;border-radius:18px;display:flex;align-items:center;justify-content:center}
+  .soc .sic svg{width:34px;height:34px;fill:#fff}
+  .soc.yt .sic{background:#ff0000}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+  .soc h4{font-size:1.3rem;margin-bottom:.3rem}
+  .soc p{font-size:1.02rem;color:var(--muted);margin:0}
+
+  @media(max-width:640px){
+    body{font-size:1.16rem;line-height:1.8}
+    header.hero{min-height:auto;padding:6rem 0 4rem}
+    .btn{display:block;text-align:center}
+    .btn.ghost{margin-left:0;margin-top:.9rem}
+    .discuss{padding:2.2rem 1.5rem}
+    .rule{padding:2.4rem 1.4rem}
+  }
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.scroll-hint,.video-frame .play{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY · LSA PERFORMANCE MAX MOVE 2026</span>
+    <h1>Your LSA Dashboard Is <span class="hl">Disappearing</span></h1>
+    <p class="deck">The complete case study: Google is moving Local Service Ads <strong>inside Google Ads</strong> as Performance Max. Your old reports do NOT transfer — the six downloads to save, the 14-day warning, and the three things to do this week.</p>
+    <div class="meta">
+      <span>⏱ 6 min read</span>
+      <span>📊 Example math, real mechanics</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<!-- VIDEO -->
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-frame reveal">
+      <a href="VIDEO_URL_HERE" id="videoLink" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:1.1rem">
+        <div class="play"></div>
+      </a>
+      <p class="video-note">🎬 Prefer video? Watch the full breakdown on YouTube — tap the play button.</p>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Your LSA dashboard has an expiry date. One morning it redirects to Google Ads — and three years of reports stay behind. Google gave you <strong>one email</strong>. Fourteen days. Here is the full written version: what moves, what dies on the way, and what you must save before your date comes.</p>
+<p class="reveal">Read it once, slowly — and save your data this week, before the email, not after it.</p>
+
+<h2 class="sec reveal"><span class="n">01</span>One morning, your dashboard is gone.</h2>
+<p class="reveal">Think of your business like a bucket. Leads are the water — you pour water in. The holes? That's where leads leak out. Now imagine someone moves your bucket to a new shelf — and half the water stays behind.</p>
+<p class="reveal">That is migration day. Your old LSA dashboard stops working. The page redirects you to Google Ads. Your history — what you spent, how many leads you got, your cost per lead — <strong>does not come with you</strong>.</p>
+<p class="reveal">Google sent you ONE email about this. Fourteen days before. You probably didn't read it. This is happening right now, and most business owners have no idea.</p>
+<div class="takeaway warn reveal"><strong>The takeaway:</strong> migration day has no undo button. When your date comes, the old dashboard closes for good.</div>
+
+<h2 class="sec reveal"><span class="n">02</span>What is actually happening</h2>
+<p class="reveal">So what is actually happening? Google is moving Local Service Ads INSIDE Google Ads. The new home is called Performance Max. Think of it like this — your shop stays in the same spot on the street. Customers still see you at the top of Google. But the building gets a new owner, with new rules.</p>
+<p class="reveal">The timeline: <strong>phase one started in August 2026</strong> — plumbing, HVAC, roofing, electrical, house cleaning, all the big home services. <strong>Phase two comes later this year.</strong> And in 2027, the rest of the world follows. If you run home-service ads in the US, this is YOUR year.</p>
+<div class="takeaway reveal"><strong>The takeaway:</strong> LSA isn't ending. It's changing landlords — and the new landlord runs everything through automation.</div>
+
+<h2 class="sec reveal"><span class="n">03</span>What dies on migration day</h2>
+<p class="reveal">When your account moves, three manual controls die:</p>
+<div class="check reveal">
+  <div class="q"><span>1.</span>Manual bidding — gone<small>You can't set your own bids anymore. The machine decides.</small></div>
+  <div class="q"><span>2.</span>Max cost per lead — gone<small>The cap you used to protect your budget disappears.</small></div>
+  <div class="q"><span>3.</span>Targets per service — replaced<small>Instead of one target for plumbing and another for HVAC, Google gives you ONE number for your whole account. One target cost per lead for everything.</small></div>
+</div>
+<p class="reveal">And one more thing: <strong>you cannot opt out.</strong> When your migration date comes, it just happens. That one number is where the real problem starts. Let me show you.</p>
+<div class="takeaway warn reveal"><strong>The takeaway:</strong> one number for your whole account. That single target is where your best jobs start to leak.</div>
+
+<h2 class="sec reveal"><span class="n">04</span>One number, two jobs — why the blended target hurts</h2>
+<p class="reveal">Let me show you why one number is dangerous. Let's say you do plumbing AND heating and cooling. A plumbing job makes you, let's say, <strong>$500 profit</strong>. An HVAC install makes you <strong>$8,000 profit</strong>. Big difference, right? (These are example numbers — run your own.)</p>
+<p class="reveal">Now Google says: your target is <strong>$100 per lead</strong>. For plumbing, $100 is <strong>20% of your profit</strong>. That's expensive. For HVAC, $100 is NOTHING — barely one percent.</p>
+<div class="statgrid reveal">
+  <div class="stat c"><div class="num">$500</div><p>Example profit on a plumbing job</p></div>
+  <div class="stat a"><div class="num">$100</div><p>One blended target per lead</p></div>
+  <div class="stat g"><div class="num">$8,000</div><p>Example profit on an HVAC install</p></div>
+</div>
+<p class="reveal">So what does Google's robot do? It buys you cheap plumbing leads all day long. Easy wins for the robot. And your HVAC side? Starves.</p>
+<div class="versus reveal">
+  <div class="camp a">
+    <h3>🚰 Plumbing</h3>
+    <div class="row"><span>Profit per job</span><span class="v">$500</span></div>
+    <div class="row"><span>$100 target eats</span><span class="v">20%</span></div>
+    <div class="verdict">Expensive. <strong>Every lead costs real money here.</strong></div>
+  </div>
+  <div class="camp b">
+    <h3>❄️ HVAC</h3>
+    <div class="row"><span>Profit per job</span><span class="v">$8,000</span></div>
+    <div class="row"><span>$100 target eats</span><span class="v">~1%</span></div>
+    <div class="verdict">Pocket change. <strong>But the robot won't chase these.</strong></div>
+  </div>
+</div>
+<div class="takeaway warn reveal"><strong>The takeaway:</strong> same account, same number, two very different jobs. That's a HOLE in your bucket — and it's leaking your best jobs.</div>
+
+<h2 class="sec reveal"><span class="n">05</span>Your reports don't transfer — download them yourself</h2>
+<p class="reveal">Here is the part nobody talks about. When you move, your history does NOT move with you. Your old LSA reports — how much you spent last year, how many leads plumbing got versus HVAC, your real cost per lead for each service — all of it stays behind in the old dashboard.</p>
+<p class="reveal">Google's own help page says it clearly: <strong>download it yourself, before the move.</strong> After migration day, that door is closed. Forever.</p>
+<p class="reveal">Three years of proof about what works in YOUR business — gone, unless you save it now.</p>
+<div class="takeaway warn reveal"><strong>The takeaway:</strong> the move can take up to two weeks and performance can wobble during it. Save your reports BEFORE it starts.</div>
+
+<h2 class="sec reveal"><span class="n">06</span>The 14-day email — your only warning</h2>
+<p class="reveal">So how do you know WHEN your move happens? Google emails the account admin. <strong>Fourteen days before.</strong> Then one reminder at seven days. That's it. No phone call. No big red warning. Just an email that looks like every other email Google sends you.</p>
+<p class="reveal">There is also a small banner inside the old dashboard — easy to miss if you don't log in every day. So here is what I want you to do, today: <strong>open your inbox and search for "Local Services."</strong> If that email is sitting there unread, your clock is already ticking.</p>
+<div class="takeaway reveal"><strong>The takeaway:</strong> fourteen days is not a lot of time. Check your inbox today, not when it's urgent.</div>
+
+<h2 class="sec reveal"><span class="n">07</span>The six downloads — save these before the move</h2>
+<p class="reveal">Before the move, save these six things:</p>
+<div class="check reveal">
+  <div class="q"><span>1.</span>Your spend history<small>Every dollar, month by month. This is your baseline.</small></div>
+  <div class="q"><span>2.</span>Your leads, split by service<small>Plumbing separate from HVAC. The split is the whole point — the new system blends them.</small></div>
+  <div class="q"><span>3.</span>Your cost per lead, also by service<small>What a plumbing lead really cost you versus an HVAC lead. You'll need this when the one target arrives.</small></div>
+  <div class="q"><span>4.</span>Your bids and your targets<small>So you remember what worked when you had control.</small></div>
+  <div class="q"><span>5.</span>Your service areas<small>Where your ads actually ran and won.</small></div>
+  <div class="q"><span>6.</span>Your ad schedules<small>Which days and hours brought the calls.</small></div>
+</div>
+<p class="reveal">Screenshot it, download it, email it to yourself — I don't care HOW you save it. Just don't lose three years of proof about what works. Do this BEFORE the 14-day email arrives, not during it. When you're rushing, you forget things.</p>
+<div class="takeaway good reveal"><strong>The takeaway:</strong> any format works. What doesn't work is waiting.</div>
+
+<h2 class="sec reveal"><span class="n">08</span>Three things to do this week</h2>
+<div class="check reveal">
+  <div class="q"><span>1.</span>Find the email and mark your date<small>Search your inbox for "Local Services." Put the migration date on a calendar where you'll see it.</small></div>
+  <div class="q"><span>2.</span>Download all six reports<small>Spend, leads, cost per lead, bids, areas, schedules — the full checklist from section 07.</small></div>
+  <div class="q"><span>3.</span>Split your services into separate campaigns<small>Plumbing in one campaign, HVAC in another. Why? Because then each trade gets its OWN target number, and the robot can't mix your $500 jobs with your $8,000 jobs. This isn't my trick — it's Google's own workaround.</small></div>
+</div>
+<div class="takeaway good reveal"><strong>The takeaway:</strong> one campaign per trade. Write that down.</div>
+
+<h2 class="sec reveal"><span class="n">09</span>Why Google is doing this — the honest answer</h2>
+<p class="reveal">Why is Google doing this? Let me give you the honest answer. Google wants everything inside Google Ads, run by its AI. Manual knobs are disappearing everywhere — search, shopping, and now Local Services. Less control for you, more automation for them.</p>
+<p class="reveal">Now — I'm not saying the AI is evil. It CAN work well. But only if you feed it good data and set it up the right way. A robot with bad settings just loses your money FASTER. That's exactly why the checklist and the campaign split matter.</p>
+<div class="takeaway reveal"><strong>The takeaway:</strong> you're not fighting the machine — you're giving it better instructions.</div>
+
+<h2 class="sec reveal"><span class="n">10</span>Find the hole. Fix the hole. Then grow.</h2>
+<p class="reveal">Let's wrap it up. Three things, in this order.</p>
+<p class="reveal"><strong>Step one — FIND the hole.</strong> Your dashboard is moving into Google Ads, and your reports are not coming with you. Know your date.</p>
+<p class="reveal"><strong>Step two — FIX the hole.</strong> Save your data this week — before the email, not after it. And split your services so one target number can't starve your best jobs.</p>
+<p class="reveal"><strong>Step three — THEN grow.</strong> Only then do you scale.</p>
+
+<div class="rule reveal">
+  <p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow. In this order.</span></p>
+</div>
+
+<p class="reveal">Your dashboard is moving. Your data doesn't have to die with it. I'll see you in the next one.</p>
+
+</div>
+</article>
+
+<section>
+<div class="wrap">
+  <div class="discuss reveal">
+    <h3>💬 Your turn</h3>
+    <p>Did you get the 14-day email? Search your inbox for "Local Services" and tell me in the video comments — yes or no. I want to see how many clocks are already ticking.</p>
+    <a class="btn" href="VIDEO_URL_HERE" target="_blank" rel="noopener" id="videoLink2">🎬 Watch the video</a>
+    <a class="btn ghost" href="VIDEO_URL_HERE" target="_blank" rel="noopener" id="videoLink3">💬 Join the discussion</a>
+  </div>
+</div>
+</section>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">📲 Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="VIDEO_URL_HERE" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Your LSA Dashboard Is Disappearing".<br>All numbers are an illustrative worked example ("let's say"), not a promise of results.</p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const h = document.getElementById('progress');
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
