@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Video: https://youtu.be/aS9qF-2N6F4 -->
+<title>Your Ads Aren't Broken. Your Prices Are. — The 4 Profit Levers</title>
+<meta name="description" content="Most home-service owners don't have a lead problem — they have a price problem. The 4 profit levers (price, average ticket, frequency, referrals) with the real math behind each one.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your Ads Aren't Broken. Your Prices Are.">
+<meta property="og:description" content="A 20% price increase on a 10% margin turns $10K profit into $30K. Four small levers, one big jump in profit.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/profit-levers-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Your Ads Aren't Broken. Your Prices Are.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>Your Ads Aren't Broken.<br><span class="hl">Your Prices Are.</span></h1>
+    <p class="deck">Most home-service owners don't have a lead problem. They have a <strong>price problem</strong>. Here are the 4 profit levers I find in every top operator — with the real math behind each one.</p>
+    <div class="meta">
+      <span>📹 Companion video</span><span>⏱ 6 min read</span><span>🧮 Worked math inside</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/aS9qF-2N6F4" title="Your Ads Aren't Broken. Your Prices Are."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Here's what no ads guy will ever tell you: stop spending money on ads. Not forever — until you fix your prices. Because in business after business, I find the same hole. The owner is underpriced. And because he's underpriced, he has no margin.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The trap: no margin, no room</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01-margin-trap.png" alt="Industry margins: average shops keep 5 to 10 percent, struggling shops keep 2 to 5 percent">
+  <figcaption>The industry numbers. Read the red card again.</figcaption>
+</figure>
+<p class="reveal">Look at the industry numbers. The average shop keeps <strong>five to ten percent</strong>. The struggling ones keep <strong>two to five percent</strong>. Out of every hundred dollars that comes in… some owners keep TWO.</p>
+<p class="reveal">No margin means you can't afford a bad month. You can't afford a good hire. You can't afford to test new marketing. One truck breaks down — one transmission — and you're back in credit card debt.</p>
+<p class="reveal">So what does he do? He works harder. More jobs. Lower prices to "stay competitive." And the hole gets deeper. I tell every owner the same thing: doing more of what doesn't work… will never work.</p>
+<div class="takeaway warn reveal"><strong>The trap:</strong> underpriced jobs mean no margin, and no margin means you can never afford the things that would help you grow.</div>
+
+<h2 class="sec reveal"><span class="n">2</span>The 4 profit levers</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-four-levers.png" alt="The four profit levers: price, average ticket, frequency, referrals">
+  <figcaption>Four small moves. One big jump in profit.</figcaption>
+</figure>
+<p class="reveal">I dug into what the top operators in the window and home cleaning industry actually do. Not theory — real businesses, real numbers. And it always comes down to 4 levers.</p>
+<div class="steps reveal">
+  <div class="step"><div class="sn">1</div><div class="st"><strong>Price</strong> — what you charge.</div></div>
+  <div class="step"><div class="sn">2</div><div class="st"><strong>Average ticket</strong> — how much each job is worth.</div></div>
+  <div class="step"><div class="sn">3</div><div class="st"><strong>Frequency</strong> — how often they buy again.</div></div>
+  <div class="step"><div class="sn">4</div><div class="st"><strong>Referrals</strong> — who they send you.</div></div>
+</div>
+<p class="reveal">Small move on each lever… big jump in profit. Here is the math I show every owner.</p>
+
+<h2 class="sec reveal"><span class="n">3</span>Lever 1: Price — the $100K → $30K math</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-price-math.png" alt="Worked example: 100K revenue at 10 percent margin becomes 30K profit after a 20 percent price increase">
+  <figcaption>Example numbers — "let's say." Plug in your own.</figcaption>
+</figure>
+<p class="reveal">Let's say a cleaning business does one hundred thousand dollars in a month. Profit is ten percent — right at the industry average. So the owner keeps ten thousand.</p>
+<p class="reveal">Now raise prices twenty percent. Same jobs. Same costs.</p>
+<table class="math reveal">
+  <tr><th>Line</th><th>Example</th></tr>
+  <tr><td>Revenue</td><td>$100K → $120K</td></tr>
+  <tr><td>Costs</td><td>$90K → $90K</td></tr>
+  <tr class="good"><td>Profit</td><td>$10K → $30K</td></tr>
+</table>
+<p class="reveal">Look at that. Twenty percent higher price… <strong>THREE TIMES</strong> the profit. That's not greed. That's oxygen. That extra twenty thousand is what buys better trucks, better staff, better marketing. In every business I study, profit is what lets them grow.</p>
+<div class="takeaway reveal"><strong>My honesty rule:</strong> if your net margin is under ten percent — don't buy more ads. Fix your pricing first.</div>
+<p class="reveal">And here's how you know your prices are too low. If you're closing more than half your quotes… your prices are too low. Raise them until you start hearing "no." You'll hear more no's — and make more money anyway.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-04-close-rate.png" alt="Close-rate test: closing more than half your quotes means prices are too low">
+  <figcaption>Closing more than half? You're the cheapest option — and that's the problem.</figcaption>
+</figure>
+
+<h2 class="sec reveal"><span class="n">4</span>Lever 2: Average ticket — make each job worth more</h2>
+<p class="reveal">Don't just raise the price — raise what each customer BUYS.</p>
+<p class="reveal">I studied a window cleaning company that charged four dollars a window. Today they charge fifteen. Same windows. Same work. Almost FOUR TIMES the money per job.</p>
+<p class="reveal">I studied a pressure washing business that took its average ticket from six hundred to eighteen hundred dollars. They didn't raise prices. They changed HOW customers buy — packages. Good, better, best.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-05-ticket-cases.png" alt="Two real cases: window cleaning four dollars to fifteen per window, pressure washing six hundred to eighteen hundred per ticket">
+  <figcaption>Same work. The only thing that changed was how customers buy.</figcaption>
+</figure>
+<p class="reveal">Say your average ticket is one thousand dollars. Make it fifteen hundred. That's fifty percent more revenue per job. Same number of jobs.</p>
+<p class="reveal"><strong>How?</strong> Say the right words first — tell them the value before you name the price. Then cross-sell: they called for window cleaning? "Want us to do your gutters while we're here?" Then upsell — sell them MORE of what they asked for. Bigger package. Better option.</p>
+<p class="reveal">And sell packages — three of them — and show the HIGHEST price first. Always. Why highest first? Because of <strong>anchoring</strong>. When they see the big number first, the middle package looks reasonable. Even if they never buy the top one… you make more money. Every time.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-06-anchoring.png" alt="Anchoring: show the premium package first and the middle package looks reasonable">
+  <figcaption>Show the highest price first. The middle package becomes the easy yes.</figcaption>
+</figure>
+<div class="takeaway good reveal"><strong>Three-package rule:</strong> good, better, best — highest price shown first. The middle package becomes the easy yes.</div>
+
+<h2 class="sec reveal"><span class="n">5</span>Lever 3: Frequency — sell to the same customer twice</h2>
+<p class="reveal">I look at the numbers and most cleaning businesses get one visit a year per customer. Get them to twice a year… you just doubled that customer. Same ad spend. Zero extra marketing.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-07-frequency.png" alt="Frequency: one visit a year is 1X, two visits a year doubles the customer">
+  <figcaption>Same ad spend. Zero extra marketing. Just ask twice.</figcaption>
+</figure>
+<p class="reveal">How? Reminders. Maintenance plans. One simple text:</p>
+<div class="tmpl reveal">
+  <span class="tag">TEMPLATE · THE 6-MONTH REMINDER</span>
+  <p>"Hey, it's been six months since your last cleaning. Want me to book you in?"</p>
+  <span class="use">Why it works: you paid good money to win that customer — ads, quotes, driving out there. This text brings them back for free.</span>
+</div>
+<p class="reveal">A maintenance plan flips the whole game. They pay you every quarter, automatically. No re-selling. No chasing. Most owners I study never ask twice — so the customer forgets they exist.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>Lever 4: Referrals — the cheapest leads on earth</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-referral-loop.png" alt="The referral loop: ask after every job, partner with five local businesses, collect reviews that work while you sleep">
+  <figcaption>The cheapest leads on earth — and owners ignore them every day.</figcaption>
+</figure>
+<p class="reveal">After every job, ask. <strong>"Who else do you know who needs this?"</strong> One sentence. Most owners never say it.</p>
+<p class="reveal">And partner up. Find five non-competing businesses — a plumber, an electrician, a roofer, a cleaner, a landscaper. Send each other customers. You don't pay for ads. You pay with trust. One good partner can feed you jobs every single month.</p>
+<p class="reveal">And there's a referral that works while you sleep: Google reviews. Every 5-star review is a stranger telling your next customer to trust you. Ask for it the same day — that's when they're happiest.</p>
+<div class="takeaway good reveal"><strong>Three referral doors:</strong> ask every customer, partner with five non-competitors, collect Google reviews the same day.</div>
+
+<h2 class="sec reveal"><span class="n">7</span>The lie in your head</h2>
+<p class="reveal">So why doesn't everyone do this? Because every owner I talk to has the same lie in his head.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-09-the-lie.png" alt="Three lies owners believe, and the one belief to delete: I'm scared to charge more">
+  <figcaption>One deleted belief changes everything downstream.</figcaption>
+</figure>
+<p class="reveal">"I'll lose customers if I charge more." "That's price gouging." "Rich people are greedy."</p>
+<p class="reveal">Listen. Nobody is forcing anyone to buy. You name your price. They say yes or no. That's business.</p>
+<p class="reveal">Here's what studying the top operators taught me. You don't need ten new books and fifteen new systems. You need to DELETE one lie from your brain.</p>
+<div class="takeaway warn reveal"><strong>Delete "I'm scared to charge more"</strong> — and everything changes.</div>
+
+<h2 class="sec reveal"><span class="n">8</span>Price is perception</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-10-perception-cycle.png" alt="The beautiful cycle: higher price funds better service, which earns reviews and referrals, which supports higher prices">
+  <figcaption>The beautiful cycle: price feeds everything.</figcaption>
+</figure>
+<p class="reveal">And one more thing I see across every top business. Price is not just a number. It's PERCEPTION.</p>
+<p class="reveal">They did a test. Same wine. Poured from a heavy bottle — people said it tastes better. Poured from a cheap box — people gulped it down. Same wine. Different experience.</p>
+<p class="reveal">Your business is the same. How fast you answer the phone. How you greet them. Your uniform. Your quote. Your follow-up. When the experience feels premium… the price feels fair. When the experience feels cheap… every dollar feels expensive.</p>
+<p class="reveal">Watch any market. The 4.9-star company with two hundred Google reviews charges more than the 3.2-star one with twelve. Same service. Different perception. Reviews are what let you raise your prices without apology.</p>
+<p class="reveal">So don't just raise your price. Raise the EXPERIENCE around it. And here's the beautiful cycle: higher prices give you the margin to deliver better service. Better service gets better reviews. Better reviews bring more referrals. <strong>Price feeds everything.</strong></p>
+
+<h2 class="sec reveal"><span class="n">9</span>Recap — pick ONE lever this week</h2>
+<div class="rule reveal">
+  <p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow.</span></p>
+</div>
+<p class="reveal">I'm a marketer. I look at numbers all day. And the numbers say the same thing every time. Four levers. Price. Average ticket. Frequency. Referrals.</p>
+<p class="reveal">You don't need all four today. Pick ONE. This week. Raise one price. Add one upsell. Send one reminder text. Ask one happy customer for a referral. Small lever… big profit.</p>
+
+<div class="discuss reveal">
+  <h3>Which lever will you pull first?</h3>
+  <p>Price, average ticket, frequency, or referrals — tell me in the video comments. I read every one.</p>
+  <a class="btn" href="https://imamul-hassan.github.io/tools/home-service-roi-calculator/" target="_blank" rel="noopener">🧮 Run the ROI calculator</a>
+  <a class="btn ghost" href="https://cal.com/imamul-hassan-1ixanq/imamul-discovery-call" target="_blank" rel="noopener">💬 Book a call</a>
+</div>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">📲 Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://youtu.be/aS9qF-2N6F4" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Your Ads Aren't Broken. Your Prices Are."<br>All numbers are the video's worked example ("let's say"), not a promise of results.</p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
