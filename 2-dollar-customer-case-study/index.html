@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The $2 Customer Is Killing Your Business — Case Study</title>
+<meta name="description" content="Half the market has $2, half has $98. Research-backed breakdown: the whale curve, 7M Yelp reviews, why cheap customers cost more — and how to fix it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The $2 Customer Is Killing Your Business.">
+<meta property="og:description" content="Top 20% of customers made 225% of profit. Bottom 10% destroyed 125%. The research behind who you sell to.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/2-dollar-customer-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The $2 Customer Is Killing Your Business.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>The $2 Customer Is<br><span class="hl">Killing Your Business.</span></h1>
+    <p class="deck">Half the market has <strong>$2</strong>. The other half has <strong>$98</strong>. Most owners fight for the $2 half — and the research says that's exactly backwards. Here are the real numbers.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 6 min read</span><span>&#x1F4CA; Research-backed</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <!-- REPLACE MvRAFTrvzv0 WITH THE YOUTUBE ID WHEN PUBLISHED -->
+      <iframe src="https://www.youtube.com/embed/MvRAFTrvzv0" title="The $2 Customer Is Killing Your Business."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Here's something that changed how I look at every business. Half the people out there have $2. The other half has $98. And most owners spend all their energy fighting for the $2 half.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The $2 / $98 split</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01-split.png" alt="Half the market has $2 and is crowded, the other half has $98 and is empty">
+  <figcaption>Two halves. Owners crowd into the wrong one.</figcaption>
+</figure>
+<p class="reveal">This isn't about literal dollars. The $2 customer is the bargain hunter — the one who haggles, compares five quotes, and picks the cheapest. The $98 customer is the value buyer — she pays full price and judges you on the work, not the discount.</p>
+<p class="reveal">Every local market has both. But most owners build their whole business around the $2 half: discounts, deals, "best price guaranteed." Today I'll show you the real numbers behind both — and why the cheap ones are killing your business.</p>
+
+<h2 class="sec reveal"><span class="n">2</span>The whale curve</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-whale.png" alt="Top 20 percent of customers made 225 percent of profit, bottom 10 percent destroyed 125 percent">
+  <figcaption>Measured at a real company. Read the red card twice.</figcaption>
+</figure>
+<p class="reveal">Researchers studied a real company. They looked at every single customer and asked one question: who actually makes us money?</p>
+<p class="reveal">The top 20% of customers made <strong>225% of all the profit</strong>. The bottom 10% <strong>destroyed 125%</strong> of it. Only 4 out of 10 customers were profitable at all.</p>
+<p class="reveal">And here's the crazy part: the two BIGGEST customers were among the LEAST profitable. Big doesn't mean profitable.</p>
+<div class="takeaway warn reveal"><strong>The whale curve:</strong> a small slice of your customers makes all your money — and a small slice at the bottom quietly eats it.</div>
+
+<h2 class="sec reveal"><span class="n">3</span>Cheap customers rate you worse</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-reviews.png" alt="Deal customers rated 3.27 stars versus 3.73 for full-price customers across 7 million Yelp reviews">
+  <figcaption>7 million reviews. The pattern is brutal.</figcaption>
+</figure>
+<p class="reveal">Researchers studied 7 MILLION Yelp reviews. Customers who came through Groupon deals rated businesses <strong>half a star lower</strong> — 3.27 versus 3.73 for normal customers.</p>
+<p class="reveal">The cheap customer doesn't just pay less. He rates you WORSE. And one star on Yelp is worth about <strong>9% of your revenue</strong>.</p>
+<p class="reveal">So the discount didn't just cost you the discount. It cost you the next ten customers who read that review.</p>
+<div class="takeaway warn reveal"><strong>Think about it:</strong> you paid to acquire a customer who paid you less — and then told strangers not to come.</div>
+
+<h2 class="sec reveal"><span class="n">4</span>They complain more, cost more</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04-service-cost.png" alt="Bad customers called 40 to 50 times a month versus less than once for normal customers">
+  <figcaption>Sprint fired a thousand of them. Read that again.</figcaption>
+</figure>
+<p class="reveal">Researchers at the University of British Columbia found bargain hunters are <strong>18% more likely</strong> to file complaints.</p>
+<p class="reveal">And Sprint — the phone company — once FIRED a thousand customers. Why? They were calling 40 to 50 times a month. A normal customer calls less than once. Each call cost Sprint 10 to 20 dollars.</p>
+<p class="reveal">Do the math. That's a customer who costs you hundreds and pays you tens.</p>
+<div class="takeaway reveal"><strong>The line to remember:</strong> the cheap customer isn't cheap. He's EXPENSIVE.</div>
+
+<h2 class="sec reveal"><span class="n">5</span>Customer A vs Customer B</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-05-a-vs-b.png" alt="Customer A: 650 dollars once, 3 stars, gone. Customer B: 1200 dollars, 5 stars, rebooks and refers">
+  <figcaption>"Let's say" numbers — plug in your own.</figcaption>
+</figure>
+<p class="reveal">Let's say you quote an $800 cleaning job.</p>
+<p class="reveal"><strong>Customer A</strong> haggles you down to $650. He calls three times with complaints. You spend an extra hour fixing things. He leaves 3 stars. He never comes back. After your time and the headache — you kept almost NOTHING.</p>
+<p class="reveal"><strong>Customer B</strong> pays your full price — $1,200. No haggle. She leaves 5 stars. She rebooks twice a year. She sends you her neighbor. One customer becomes FIVE jobs.</p>
+<table class="math reveal">
+  <tr><th>Customer</th><th>Lifetime value</th></tr>
+  <tr class="hl"><td>A — $650 once, gone</td><td>$650</td></tr>
+  <tr class="good"><td>B — $1,200 × rebooks × referrals</td><td>$6,000+</td></tr>
+</table>
+<p class="reveal">Same work. Different customer. Different business.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>It works in the real world</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-06-real-results.png" alt="Overtime down 35 percent, profit up from 35 to 47 percent, invoice sizes up 5 to 8 percent">
+  <figcaption>Less work. More money. Measured.</figcaption>
+</figure>
+<p class="reveal">One landscape company shared their real numbers. They quit all their low-margin mowing work. Overtime dropped <strong>35%</strong>. Company profit went from <strong>35% to 47%</strong>.</p>
+<p class="reveal">They did LESS work and kept MORE money.</p>
+<p class="reveal">And Jobber's data — thousands of cleaning businesses — shows revenue growing because invoice sizes are going UP, five to eight percent. Not more jobs. Bigger tickets.</p>
+<div class="takeaway good reveal"><strong>The pattern:</strong> smart pricing, not more jobs.</div>
+
+<h2 class="sec reveal"><span class="n">7</span>Fish where the fish are</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-07-fish.png" alt="Top income fifth spends 41 percent of home repair money versus 9 percent for the bottom fifth">
+  <figcaption>41 versus 9. The money is already concentrated.</figcaption>
+</figure>
+<p class="reveal">Moody's measured this across America: the top 10% of earners do almost HALF of all consumer spending.</p>
+<p class="reveal">And the government's own numbers for home repair: the richest fifth spends <strong>41%</strong> of all the money. The bottom fifth spends <strong>9%</strong>.</p>
+<p class="reveal">41 versus 9. The money's already there. You're just fishing in the wrong half of the lake.</p>
+
+<h2 class="sec reveal"><span class="n">8</span>"But Walmart!"</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-walmart.png" alt="Walmart does 681 billion dollars at 2 percent margin versus your 5 trucks">
+  <figcaption>Their playbook needs their scale. You don't have it.</figcaption>
+</figure>
+<p class="reveal">Now someone will say — but Walmart wins on low prices! Yes. And Vanguard wins on low fees.</p>
+<p class="reveal">But Walmart does <strong>681 BILLION dollars</strong> at 2% margins. Vanguard holds <strong>11 TRILLION</strong>. Low price only works with MASSIVE scale — or a product that costs nothing to serve.</p>
+<p class="reveal">You have five trucks. Not five thousand stores. You can't run their playbook. So stop trying.</p>
+
+<h2 class="sec reveal"><span class="n">9</span>The fix</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-09-fix.png" alt="Raise prices until $2 customers leave on their own, then earn the $98 customers">
+  <figcaption>Let the filter do the firing.</figcaption>
+</figure>
+<div class="steps reveal">
+  <div class="step"><div class="sn">1</div><div class="st"><strong>Raise your prices</strong> — until the $2 customers leave ON THEIR OWN.</div></div>
+  <div class="step"><div class="sn">2</div><div class="st"><strong>Remember my rule</strong> — if you're closing more than half your quotes, your prices are too low.</div></div>
+  <div class="step"><div class="sn">3</div><div class="st"><strong>Earn the $98 customers</strong> — better service, better reviews, better experience.</div></div>
+</div>
+<p class="reveal">You don't fire the $2 customers. Your prices do it for you. Then you earn the $98 ones — the ones who pay full price, leave 5 stars, rebook, and send their neighbors.</p>
+<div class="takeaway good reveal"><strong>The goal:</strong> fewer jobs. Better jobs. More profit.</div>
+
+<h2 class="sec reveal"><span class="n">10</span>Find the hole. Fix the hole. Then grow.</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-10-close.png" alt="Find the hole. Fix the hole. Then grow.">
+  <figcaption>The whole video in three lines.</figcaption>
+</figure>
+<p class="reveal">The hole was never your ads. It was WHO you were selling to.</p>
+<div class="rule reveal"><p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow.</span></p></div>
+
+<h2 class="sec reveal">Sources</h2>
+<p class="reveal">Every number in this case study is measured, not invented:</p>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">
+Kaplan, Kanthal ABC customer-profitability study — top 20% = 225% of profits, bottom 10% = −125%<br>
+Byers / Mitzenmacher / Zervas (2011) — 7M+ Yelp reviews, Groupon merchants rated lower<br>
+Luca — 1 Yelp star ≈ 9% of revenue<br>
+University of British Columbia, Journal of Consumer Psychology (2017) — bargain hunters +18% complaints<br>
+Sprint (2007) — dropped ~1,000 high-service-cost customers<br>
+Turf Magazine (2020) — landscape firm: overtime −35%, profit 35% → 47%<br>
+Jobber (2025–26) — cleaning invoice sizes +5–8%<br>
+Moody's Analytics — top 10% ≈ half of US consumer spending<br>
+BLS Consumer Expenditure Survey — top quintile 40.8% vs bottom 9.1% of home maintenance/repair spending<br>
+Walmart FY2025 — $681B revenue, ~2% net margin
+</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://youtu.be/MvRAFTrvzv0" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "The $2 Customer Is Killing Your Business."<br>Customer A/B numbers are the video's worked example ("let's say"), not a promise of results.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://youtu.be/MvRAFTrvzv0" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
