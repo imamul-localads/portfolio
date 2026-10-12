@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Run Google Ads Until You Do This Math — Case Study</title>
+<meta name="description" content="What is one lead worth to you? Most owners can't answer — then spend $2,000/month on ads blind. The 3-number math that tells you exactly when ads make sense.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Don't Run Google Ads Until You Do This Math.">
+<meta property="og:description" content="Average job x margin x close rate = what one lead is worth to you. The math that says when ads make sense — and when they don't.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/dont-run-ads-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Don't Run Google Ads Until You Do This Math.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>Don't Run Google Ads<br><span class="hl">Until You Do This Math.</span></h1>
+    <p class="deck">What is one lead worth to you? Most owners can't answer that — then spend <strong>$2,000 a month</strong> on ads, blind. Three numbers you already know tell you exactly when ads make sense.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 5 min read</span><span>&#x1F9EE; Practitioner framework</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <!-- REPLACE KFGfYGXuUoc WITH THE YOUTUBE ID WHEN PUBLISHED -->
+      <iframe src="https://www.youtube.com/embed/KFGfYGXuUoc" title="Don't Run Google Ads Until You Do This Math."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Don't spend one dollar on Google Ads until you know this number. You're the owner. You close the jobs. You know what a job is worth. But ask yourself — what is one LEAD worth to you?</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The question</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01-question.png" alt="One lead equals question mark - most owners cannot answer what a lead is worth">
+  <figcaption>One lead = ? Most owners draw a blank.</figcaption>
+</figure>
+<p class="reveal">Most business owners can't tell me what one lead is worth to them. They know their revenue. They know their costs. But ask them, "What's one lead worth to you?" Silence.</p>
+<p class="reveal">And then they spend $2,000 a month on Google Ads. Blind.</p>
+
+<h2 class="sec reveal"><span class="n">2</span>Gambling with your own money</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-gambling.png" alt="Offered 80 dollars a lead, you decide on a feeling, every month a gamble">
+  <figcaption>No number to compare it to. So it's a bet.</figcaption>
+</figure>
+<p class="reveal">Here's what happens. Someone offers you leads — $80 a lead, let's say. And you have to say yes or no... based on what? A feeling.</p>
+<p class="reveal">You have no number to compare it to. So you're gambling. Every single month. With your own money.</p>
+<div class="takeaway warn reveal"><strong>The problem:</strong> you built this business with your own hands — and now you bet its money on a feeling.</div>
+
+<h2 class="sec reveal"><span class="n">3</span>Three numbers you already know</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-numbers.png" alt="Average job 500 dollars, margin 40 percent, profit per job 200 dollars">
+  <figcaption>Three numbers. You live them every day.</figcaption>
+</figure>
+<p class="reveal">So let's find your number. Three numbers — and nobody knows them better than you.</p>
+<p class="reveal"><strong>First:</strong> your average job value. Let's say $500. <strong>Second:</strong> your margin. From that $500, after materials, labor, fuel — what do you keep? Let's say 40%. That's <strong>$200 profit per job</strong>. Your work. Your $200.</p>
+
+<h2 class="sec reveal"><span class="n">4</span>Your number</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04-your-number.png" alt="200 dollars times 30 percent equals 60 dollars per lead">
+  <figcaption>The whole video in one line of math.</figcaption>
+</figure>
+<p class="reveal"><strong>Third:</strong> your close rate. Out of 10 calls, how many jobs do YOU close? Be honest. Most owners close 20 to 30%. Let's say 3 out of 10.</p>
+<p class="reveal">Now multiply. $200 profit per job, times 30%. That's <strong>$60</strong>. One lead is worth $60 to you. That's your number. Nobody can argue with it — it's YOUR math.</p>
+<div class="takeaway reveal"><strong>The formula:</strong> average job &times; margin &times; close rate = what one lead is worth to you.</div>
+
+<h2 class="sec reveal"><span class="n">5</span>Your money, your call</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-05-comparison.png" alt="Lead price 80 dollars versus your number 60 dollars, result minus 20 dollars per lead">
+  <figcaption>Same leads. Same price. Different math, different answer.</figcaption>
+</figure>
+<p class="reveal">Now you decide. Leads cost $80. Your number is $60. Every lead LOSES you $20. That's your money walking out the door. So you don't buy.</p>
+<p class="reveal">Not because some guru told you — because YOUR numbers told you. But if your number was $100? Then you buy. Same leads. Same price. Different math, different answer. And it's YOUR answer.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>Why you hire a marketer</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-06-honest-test.png" alt="300 dollar test, 4 real calls, true cost 75 dollars per lead">
+  <figcaption>Real calls. Your market. Your money.</figcaption>
+</figure>
+<p class="reveal">So how do you find your real cost per lead? Not alone. You're running a business — you'll read the numbers wrong, or panic when $300 brings two calls. That's why owners hire marketers.</p>
+<p class="reveal">But most will sell you a $2,000 package and hope. The honest one runs a small test first. $300. One week. One service. Let's say it brings 4 calls. That's $75 a lead. Then he tells you the truth: don't scale this. Fix your number first.</p>
+<div class="takeaway good reveal"><strong>THAT is why you hire a marketer.</strong> Not to click buttons — to tell you the truth.</div>
+
+<h2 class="sec reveal"><span class="n">7</span>Three ways to fix it</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-07-fixes.png" alt="Raise your prices, close more calls, stop chasing 2 dollar customers and find the 98 dollar ones">
+  <figcaption>Every hole we've found shows up in this one number.</figcaption>
+</figure>
+<p class="reveal">If your number is too small, you fix it. Three ways. <strong>One:</strong> raise your prices — you decide what your work is worth. <strong>Two:</strong> close more of the calls you already get. <strong>Three:</strong> stop chasing $2 customers and find the $98 ones.</p>
+<p class="reveal">That's the last three videos in this series — pricing, follow-up, customer quality. They were all building to this one. Every hole shows up in YOUR number.</p>
+
+<h2 class="sec reveal"><span class="n">8</span>Who's on your side</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-trust.png" alt="Shows you the math, says don't spend until it works, won't gamble your money">
+  <figcaption>The trust filter for hiring any marketer.</figcaption>
+</figure>
+<p class="reveal">Now here's how you know who to trust. Any marketer can tell you to spend more. The one who shows you this math — and tells you NOT to spend until it works — he's on YOUR side of the table.</p>
+<p class="reveal">And when your number does beat the cost, and he says "now spend" — you'll trust him. Because he already proved he won't gamble with your money.</p>
+
+<h2 class="sec reveal"><span class="n">9</span>Your homework: the free tool</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-09-tool.png" alt="Free ROI calculator - your average job, margin, close rate, your number">
+  <figcaption>30 seconds. Your numbers in, your number out.</figcaption>
+</figure>
+<p class="reveal">I built a free tool that does this math for you. Put in your average job, your margin, your close rate — it tells you what a lead is worth to you.</p>
+<div class="takeaway good reveal"><strong>Try it now:</strong> <a href="https://imamul-hassan.github.io/tools/home-service-roi-calculator/" target="_blank" rel="noopener" style="color:var(--gold)">Home-Service ROI Calculator</a> — then compare your number to what ads cost in your market. If your number wins, spend with confidence. If it doesn't, fix the hole first.</div>
+<div class="rule reveal"><p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow.</span></p></div>
+
+<h2 class="sec reveal">Part of the series</h2>
+<p class="reveal">This video completes a four-part arc — every hole feeds the one number:</p>
+<p class="reveal" style="font-size:1.05rem">
+<a href="https://imamul-localads.github.io/portfolio/profit-levers-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The 4 Profit Levers</a> — fix your pricing.<br>
+<a href="https://imamul-localads.github.io/portfolio/followup-machine-part-2/" target="_blank" rel="noopener" style="color:var(--gold)">The Follow-Up Machine</a> — close more of the calls you get.<br>
+<a href="https://imamul-localads.github.io/portfolio/2-dollar-customer-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The $2 Customer</a> — stop chasing cheap customers.<br>
+<strong>This video</strong> — the math that ties them together.
+</p>
+
+<h2 class="sec reveal">A note on the numbers</h2>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">This is a practitioner framework, not a research paper. The dollar figures ($500 job, 40% margin, $80/lead, $300 test) are worked "let's say" examples from the video — plug in your own numbers. The formula itself (average job &times; margin &times; close rate) is the whole point: your numbers, your answer.</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://youtu.be/KFGfYGXuUoc" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Don't Run Google Ads Until You Do This Math."<br>All dollar figures are the video's worked "let's say" examples — plug in your own numbers.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://youtu.be/KFGfYGXuUoc" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
