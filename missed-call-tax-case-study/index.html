@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Missed-Call Tax — Case Study</title>
+<meta name="description" content="You paid for that call. You just didn't answer it. Since October 1, 2026 Google bills you for missed LSA calls — the math on what unanswered calls really cost.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Missed-Call Tax.">
+<meta property="og:description" content="100 calls x $30 = $3,000. Miss 30 and $900 burns on calls you never spoke to — and Google bills you anyway.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/missed-call-tax-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Missed-Call Tax.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>The <span class="hl">Missed-Call Tax.</span></h1>
+    <p class="deck">You paid for that call. You just didn't answer it. Since October 1, Google even bills you for the ones you miss — here's the math on what unanswered calls really cost.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 5 min read</span><span>&#x1F9EE; Practitioner framework</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <!-- REPLACE lWoX2R--zuo WITH THE YOUTUBE ID WHEN PUBLISHED -->
+      <iframe src="https://www.youtube.com/embed/lWoX2R--zuo" title="The Missed-Call Tax."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">You paid for that call. You just didn't answer it. Let me show you the most expensive tax in your business — and nobody sends you a bill for it.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The new rule</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-new-rule.png" alt="Answered call billed 30 dollars, missed call over 20 seconds billed the same 30 dollars">
+  <figcaption>Answered or not — Google bills the lead either way now.</figcaption>
+</figure>
+<p class="reveal">Here's how it works. A customer calls you from a Local Services Ad. You answer, you talk — Google charges you for the lead. Let's say $30. Fair.</p>
+<p class="reveal">But since <strong>October 1, 2026</strong>, here's the new rule: if you DON'T answer, and the caller just stays on the line 20 seconds listening to it ring — Google charges you anyway. Same $30.</p>
+<div class="takeaway warn reveal"><strong>The missed-call tax is real now.</strong> It's on your invoice. You paid for a conversation that never happened.</div>
+
+<h2 class="sec reveal"><span class="n">2</span>Your math</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-math.png" alt="100 calls times 30 dollars equals 3000 dollars ad spend, 30 missed equals 900 dollars burned">
+  <figcaption>$900 spent on calls you never even spoke to.</figcaption>
+</figure>
+<p class="reveal">So let's do your math. Let's say a hundred calls come in this month, and each call costs you $30 from ads. That's <strong>$3,000</strong>.</p>
+<p class="reveal">Now let's say you miss 30 of those calls. You're on a job. It's after hours. The line's busy. Thirty missed calls times $30 — that's <strong>$900</strong> you spent on calls you never even spoke to.</p>
+
+<h2 class="sec reveal"><span class="n">3</span>Voicemail is dead</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04-voicemail.png" alt="42 percent of consumers leave a voicemail, under 3 percent in home services">
+  <figcaption>Voicemail is not a safety net.</figcaption>
+</figure>
+<p class="reveal">"But they'll leave a voicemail," right? No. They won't. CallRail surveyed 1,000 consumers in 2025: only <strong>42%</strong> leave a voicemail. In home services, Invoca's data puts it under <strong>3%</strong>.</p>
+<p class="reveal">Three percent. Ninety-seven out of a hundred callers just... disappear.</p>
+
+<h2 class="sec reveal"><span class="n">4</span>They call the competitor</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-05-competitor.png" alt="82 percent call a competitor, plumbers answer 3 of 4, HVAC shops answer 1 of 3">
+  <figcaption>The one who answers gets the job.</figcaption>
+</figure>
+<p class="reveal">Where do they go? To the next name on Google. That same CallRail survey: <strong>82%</strong> call a competitor after you don't pick up.</p>
+<p class="reveal">And here's the kicker — Invoca looked at 70 million calls. Plumbers answer 3 out of 4. HVAC shops answer 1 in 3. Same industry. Same phones. The one who answers gets the job.</p>
+
+<h2 class="sec reveal"><span class="n">5</span>Speed is the whole game</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-06-speed.png" alt="Within 1 hour 7 times more likely to win, average company takes 42 hours, 23 percent never respond">
+  <figcaption>Harvard Business Review, 2011 — Oldroyd, McElheran &amp; Elkington.</figcaption>
+</figure>
+<p class="reveal">Researchers at Harvard Business Review — Oldroyd, McElheran, Elkington — studied over a million leads. Reach the lead within an hour, and you're <strong>7 times</strong> more likely to turn it into a real customer.</p>
+<p class="reveal">Seven times. But the average company takes <strong>42 hours</strong> to respond. And 23% never respond at all. Your customer has a burst pipe. They're not waiting 42 hours.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>The invisible loss</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-07-invisible.png" alt="They searched, they chose you, they dialed, then you did not answer, and you will never know">
+  <figcaption>The only lead that arrives already sold.</figcaption>
+</figure>
+<p class="reveal">And here's the cruelest part. A missed call is the only lead that arrives already sold. They searched. They chose YOUR number. They dialed. Then you didn't answer... and they dialed the competitor.</p>
+<p class="reveal">And you'll never know. Nobody emails you to say "I hired someone else."</p>
+<div class="takeaway warn reveal"><strong>The loss is invisible. But the ad spend isn't.</strong></div>
+
+<h2 class="sec reveal"><span class="n">7</span>The fix — two moves</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-fix.png" alt="Missed-call text-back message example: Sorry I missed you, I'm on a job, what's going on">
+  <figcaption>It keeps the lead warm without touching your phone with dusty hands.</figcaption>
+</figure>
+<p class="reveal">So what do you do? Two things. <strong>First</strong> — if a marketer tells you to spend MORE on ads while you miss a third of your calls, I'd walk away. More calls into a missed-call problem is just a bigger tax. Fix the phone first. Then buy more calls.</p>
+<p class="reveal"><strong>Second</strong> — set up a missed-call text-back. The second you miss a call, the customer gets a text: <em>"Sorry I missed you, I'm on a job — what's going on?"</em> One contractor put it perfectly: it keeps the lead warm without you touching your phone with dusty hands.</p>
+<div class="takeaway good reveal"><strong>Answer fast, or text back fast.</strong> That's the whole fix.</div>
+
+<h2 class="sec reveal"><span class="n">8</span>Your move</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-09-tax.png" alt="Count your missed calls this week, multiply by what one call costs you, that number is your tax">
+  <figcaption>30 seconds. Your phone already tracks them.</figcaption>
+</figure>
+<p class="reveal">One thing worth doing this week: count your missed calls. Your phone already tracks them. Multiply that number by what one call costs you.</p>
+<p class="reveal">That's your tax. Now you can see it for yourself.</p>
+<div class="rule reveal"><p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow.</span></p></div>
+
+<h2 class="sec reveal">Sources</h2>
+<p class="reveal" style="font-size:1.05rem">Every number in this video comes from a named source:</p>
+<ul class="reveal" style="font-size:1.05rem;line-height:2">
+<li><strong>CallRail, 2025</strong> — 1,000 US consumers: 78% abandon after an unanswered call, 82% call a competitor, 42% leave a voicemail.</li>
+<li><strong>Invoca, 2026</strong> — 70M+ calls: 56% answered overall; home services 52%; plumbing 74%, HVAC 34%.</li>
+<li><strong>ServiceTitan, 2022</strong> — 3,000+ trades businesses: shops with &lt;5 techs book 24% of calls vs 59% for 25+ tech shops.</li>
+<li><strong>BT-commissioned research, 2026</strong> — 67% of small businesses miss at least one money call per day.</li>
+<li><strong>Harvard Business Review, 2011</strong> — Oldroyd, McElheran &amp; Elkington: 1-hour response ≈ 7x more likely to qualify the lead; average response 42 hours.</li>
+<li><strong>PPC Land, Oct 2026</strong> — Google LSA billing change: unanswered business-hours calls (20s+) billed as leads from Oct 1, 2026.</li>
+</ul>
+
+<h2 class="sec reveal">Part of the series</h2>
+<p class="reveal">The missed-call tax sits inside a bigger system — every video finds one hole:</p>
+<p class="reveal" style="font-size:1.05rem">
+<a href="https://imamul-localads.github.io/portfolio/profit-levers-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The 4 Profit Levers</a> — fix your pricing.<br>
+<a href="https://imamul-localads.github.io/portfolio/followup-machine-part-2/" target="_blank" rel="noopener" style="color:var(--gold)">The Follow-Up Machine</a> — close more of the calls you get.<br>
+<a href="https://imamul-localads.github.io/portfolio/2-dollar-customer-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The $2 Customer</a> — stop chasing cheap customers.<br>
+<a href="https://imamul-localads.github.io/portfolio/dont-run-ads-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">Don't Run Google Ads Until You Do This Math</a> — what one lead is worth to you.<br>
+<strong>This video</strong> — the worth you throw away.
+</p>
+
+<h2 class="sec reveal">A note on the numbers</h2>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">This is a practitioner framework, not a research paper. The video's own math (100 calls, $30/call, 30 missed) is a worked "let's say" example — plug in your own numbers. The cited research stats above are from their named sources, linked in the video description.</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://youtu.be/lWoX2R--zuo" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "The Missed-Call Tax."<br>All example math is the video's worked "let's say" figures — plug in your own numbers. Research stats are from their named sources.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://youtu.be/lWoX2R--zuo" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
