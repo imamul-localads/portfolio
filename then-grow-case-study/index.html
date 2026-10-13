@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Then Grow — Case Study</title>
+<meta name="description" content="Your number beats the cost. Now what? The green-light rule for scaling your ads — when to spend more, how fast, and the day you stop.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Then Grow.">
+<meta property="og:description" content="$60 number vs $40 cost per lead. Scale in 10-20% steps, watch the needle, stop the day it touches your number.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/then-grow-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Then Grow.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>Then <span class="hl">Grow.</span></h1>
+    <p class="deck">Your number beats the cost. Now what? Here's the green-light rule for scaling your ads — when to spend more, how fast, and the day you stop.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 5 min read</span><span>&#x1F9EE; Practitioner framework</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/D_Po9taNoFI" title="Then Grow."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Your number beats the cost. Now what? Every video in this series found a hole — pricing, follow-up, cheap customers, the math, missed calls. You found them. You fixed them. Now... grow.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The series so far</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01-holes.png" alt="Five holes fixed: pricing, follow-up, cheap customers, the math, missed calls">
+  <figcaption>Five holes. All fixed. That's what makes this video different.</figcaption>
+</figure>
+<p class="reveal">This video only works because of the ones before it. <strong>Pricing</strong> — fixed. <strong>Follow-up</strong> — fixed. <strong>Cheap customers</strong> — fixed. <strong>The math</strong> — fixed. <strong>Missed calls</strong> — fixed.</p>
+<p class="reveal">Scaling is the last step, not the first. If any hole is still open, more ad spend just pours more money through it.</p>
+
+<h2 class="sec reveal"><span class="n">2</span>The spending trap</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-trap.png" alt="Doubling the budget in a day pushes cost per lead from 15 dollars to 24 dollars and it never comes back down">
+  <figcaption>Double the budget in a day, and the damage sticks.</figcaption>
+</figure>
+<p class="reveal">Most people think scaling means one thing — spend more. So they double the budget in a day. Here's what happens: your cost per lead jumps. <strong>$15 becomes $24.</strong></p>
+<p class="reveal">You turn the budget back down. It doesn't recover. Growing isn't about guts. It's about math.</p>
+
+<h2 class="sec reveal"><span class="n">3</span>The green light</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-gauge.png" alt="Gauge with needle at 40 dollars per lead, green zone up to your number of 60 dollars">
+  <figcaption>Watch the needle. That's the whole video.</figcaption>
+</figure>
+<p class="reveal">So when do you scale? Here's the green light. Your number — what one lead is worth to you — is <strong>$60</strong>. Right now each lead costs you <strong>$40</strong>.</p>
+<p class="reveal">Sixty beats forty. With room to spare. That's when you scale. Not before.</p>
+<div class="takeaway good reveal"><strong>The gauge rule:</strong> needle under your number — green, grow. Needle touches your number — red, stop.</div>
+
+<h2 class="sec reveal"><span class="n">4</span>How fast</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04-steps.png" alt="Budget staircase rising 20 percent a step from 1000 to 1750 dollars, wait a week and watch between steps">
+  <figcaption>Stairs, not a jump.</figcaption>
+</figure>
+<p class="reveal">You've heard the twenty-percent rule. Here's the part most people miss: <strong>Google never published it.</strong> Google's own help page names three things that restart learning — a new strategy, a setting change, a composition change. Budget size isn't one of them.</p>
+<p class="reveal">The twenty-percent rule comes from people who run ads every day. Ten to twenty percent up, wait a week or two, watch what happens. They learned it the hard way — watching big jumps break good campaigns.</p>
+
+<h2 class="sec reveal"><span class="n">5</span>Why slow wins</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-05-drift.png" alt="Cost per lead bars rising 40 to 45 to 50 dollars, still under the 60 dollar ceiling">
+  <figcaption>Drift is normal. Crossing the line is not.</figcaption>
+</figure>
+<p class="reveal">The first customers are always the cheapest. Best keywords. Closest zip codes. People most ready to buy. Every step up, you pay more for people who want it less.</p>
+<p class="reveal">Your forty-dollar lead becomes forty-five. Then fifty. That's just how it works. As long as fifty stays under sixty, you keep going.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>The stop rule</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-06-stop.png" alt="Gauge needle at 60 dollars in the red zone, CAN we spend more always, SHOULD we your number says no">
+  <figcaption>Two questions. Your number answers the second one.</figcaption>
+</figure>
+<p class="reveal">When do you stop? The day your cost per lead hits sixty — your number — you stop. Not pause. Not panic. Stop.</p>
+<p class="reveal">An agency called InnerSpark Creative asks two questions: CAN we spend more? And SHOULD we spend more? Different questions. Your number answers the second one.</p>
+
+<h2 class="sec reveal"><span class="n">7</span>The operations trap</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-07-bucket.png" alt="Two leaky buckets: 1000 dollars a month leaks 300 burned, 3000 dollars a month leaks 900 burned">
+  <figcaption>Same leak. Bigger bucket. Bigger tax.</figcaption>
+</figure>
+<p class="reveal">More calls don't break your ads first. They break your BUSINESS first. Remember the missed-call video? Thirty percent missed on a thousand a month — <strong>$300 burned</strong>.</p>
+<p class="reveal">On three thousand? <strong>$900.</strong> Scaling a leaky bucket just buys you a bigger leak.</p>
+
+<h2 class="sec reveal"><span class="n">8</span>The real rule</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-chain.png" alt="Chain: answer, close, finish, then raise the budget">
+  <figcaption>Budget goes up last, never first.</figcaption>
+</figure>
+<p class="reveal">Grow as fast as you can answer, close, and finish the work. Not faster. The founder of Play Media runs ads for a living. His rule is simple: if your funnel leaks, more budget just means more waste.</p>
+<p class="reveal">Fix the phone. Fix the follow-up. THEN raise the budget.</p>
+
+<h2 class="sec reveal"><span class="n">9</span>Then grow</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-09-grow.png" alt="Find the hole, fix the hole, then grow, gauge needle at 40 dollars in the green">
+  <figcaption>The series payoff.</figcaption>
+</figure>
+<p class="reveal">You found the holes. You fixed the holes. Sixty beats forty. With room. So now... then grow.</p>
+<p class="reveal"><strong>Your scaling checklist:</strong> (1) Your number beats your cost per lead, with room. (2) Raise 10–20% at a time, wait a week or two, watch. (3) The day cost per lead touches your number, stop. (4) Scale only as fast as you can answer, close, and finish the work.</p>
+<div class="rule reveal"><p><span class="r1">Find the hole.</span><span class="r2">Fix the hole.</span><span class="r3">Then grow.</span></p></div>
+
+<h2 class="sec reveal">Sources</h2>
+<p class="reveal" style="font-size:1.05rem">Every claim in this video comes from a named source:</p>
+<ul class="reveal" style="font-size:1.05rem;line-height:2">
+<li><strong><a href="https://support.google.com/google-ads/answer/6263057" target="_blank" rel="noopener">Google Ads Help — bid strategy statuses</a></strong> — the three learning triggers: new strategy, setting change, composition change. Budget size is not one of them.</li>
+<li><strong><a href="https://support.google.com/google-ads/answer/15642526?hl=en" target="_blank" rel="noopener">Google Ads Help — calibration</a></strong> — learning can take up to around 50 conversion events or 3 conversion cycles.</li>
+<li><strong><a href="https://searchengineland.com/ppc-budgeting-adjust-scale-optimize-data-452493" target="_blank" rel="noopener">Search Engine Land, 2026 — PPC budgeting</a></strong> — the 10–20% weekly increase guidance.</li>
+<li><strong><a href="https://www.searchenginejournal.com/scaling-ppc-campaigns-sustainably-use-the-scale-framework/548888/" target="_blank" rel="noopener">Search Engine Journal — SCALE framework</a></strong> — max 20–30% every couple of days; stop if cost-per-customer jumps over 20%.</li>
+<li><strong><a href="https://aviddemand.com/blog/5-things-to-verify-before-increasing-your-google-ads-budget/" target="_blank" rel="noopener">AvidDemand, Oct 2026</a></strong> — 15–20% at a time, with a week or two between increases.</li>
+<li><strong><a href="https://www.innersparkcreative.com/news/when-to-pause-rebuild-or-scale-ppc-an-evaluation-framework-for-owners" target="_blank" rel="noopener">InnerSpark Creative — readiness framework</a></strong> — scale when lead quality, economics, capacity, and demand all hold; "Can we spend more?" vs "Should we spend more?"</li>
+<li><strong><a href="https://www.innersparkcreative.com/news/local-ppc-in-auburn-why-more-spend-does-not-equal-more-booked-jobs" target="_blank" rel="noopener">InnerSpark Creative — diminishing returns</a></strong> — high-intent local demand is finite; extra spend buys colder traffic.</li>
+<li><strong>Play Media founder (LinkedIn, 2026)</strong> — "Scaling isn't a budget problem. It's a systems problem. If your funnel leaks, more budget = more waste."</li>
+<li><strong><a href="https://excellappc.com/blog/are-google-ads-still-worth-it/" target="_blank" rel="noopener">ExcellapPC, Sept 2026</a></strong> — 9x spend → 5x revenue, ROAS 13 → 7.9 — still profitable, decided in advance.</li>
+<li><strong><a href="https://www.linkedin.com/pulse/how-i-fixed-433-cpl-campaign-scaled-60-qualified-syed-simanta-wppdc" target="_blank" rel="noopener">Syed Simanta (LinkedIn)</a></strong> — plumbing: $433/lead rebuilt to $25–75 at 60+ qualified leads/month.</li>
+<li><strong><a href="https://www.reddit.com/r/PPC/comments/ibn0jq/" target="_blank" rel="noopener">r/PPC — community report</a></strong> — advertiser doubled budget, CPA $15 → $24, cut back, performance never returned to baseline.</li>
+</ul>
+
+<h2 class="sec reveal">Part of the series</h2>
+<p class="reveal">Then Grow is the payoff video — every video before it found one hole:</p>
+<p class="reveal" style="font-size:1.05rem">
+<a href="https://imamul-localads.github.io/portfolio/profit-levers-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The 4 Profit Levers</a> — fix your pricing.<br>
+<a href="https://imamul-localads.github.io/portfolio/followup-machine-part-2/" target="_blank" rel="noopener" style="color:var(--gold)">The Follow-Up Machine</a> — close more of the calls you get.<br>
+<a href="https://imamul-localads.github.io/portfolio/2-dollar-customer-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The $2 Customer</a> — stop chasing cheap customers.<br>
+<a href="https://imamul-localads.github.io/portfolio/dont-run-ads-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">Don't Run Google Ads Until You Do This Math</a> — what one lead is worth to you.<br>
+<a href="https://imamul-localads.github.io/portfolio/missed-call-tax-case-study/" target="_blank" rel="noopener" style="color:var(--gold)">The Missed-Call Tax</a> — the worth you throw away on unanswered calls.<br>
+<strong>This video</strong> — now that the holes are fixed, grow.
+</p>
+
+<h2 class="sec reveal">A note on the numbers</h2>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">This is a practitioner framework, not a research paper. The video's own math ($60 number, $40 cost per lead, $1,000 → $3,000/month) is a worked "let's say" example — plug in your own numbers. The cited research above is from its named sources.</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://youtu.be/D_Po9taNoFI" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Then Grow."<br>All example math is the video's worked "let's say" figures — plug in your own numbers. Research claims are from their named sources.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://youtu.be/D_Po9taNoFI" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
