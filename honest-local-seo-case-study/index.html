@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honest Local SEO Playbook — Case Study</title>
+<meta name="description" content="How a garage door client hit the top three in Google Maps in 60 days — the full local SEO roadmap. No hype. No stopwatch.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Honest Local SEO Playbook.">
+<meta property="og:description" content="Top three in Google Maps in 60 days. The full local SEO roadmap — profile, reviews, website, listings, and 60 days of real posting.">
+<meta property="og:url" content="https://imamul-localads.github.io/portfolio/honest-local-seo-case-study/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Honest Local SEO Playbook.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  .tmpl{background:#0d1526;border:1px dashed rgba(245,197,102,.5);border-radius:16px;
+    padding:1.6rem 1.8rem;margin:2rem 0;font-size:1.18rem}
+  .tmpl .tag{display:inline-block;font-size:.85rem;letter-spacing:.18em;color:var(--gold);
+    font-weight:700;margin-bottom:.8rem}
+  .tmpl p{margin:0;color:var(--ink);font-style:italic}
+  .tmpl .use{display:block;margin-top:.9rem;font-size:1rem;color:var(--muted);font-style:normal}
+
+  .steps{margin:2rem 0}
+  .step{display:flex;gap:1.2rem;margin-bottom:1.6rem;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.6rem}
+  .step .sn{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gold);color:#0a0f1e;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .step .st{font-size:1.18rem}
+  .step .st strong{color:var(--gold)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td:last-child,table.math th:last-child{text-align:right;font-weight:700}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  .discuss{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:2.8rem 2.2rem;margin:3rem 0;text-align:center}
+  .discuss h3{font-size:1.9rem;margin-bottom:1rem}
+  .discuss p{color:var(--muted);font-size:1.18rem;margin-bottom:1.8rem}
+  .btn{display:inline-block;background:var(--gold);color:#0a0f1e;font-weight:800;font-size:1.2rem;
+    padding:1rem 2.4rem;border-radius:999px;text-decoration:none;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn.ghost{background:transparent;color:var(--gold);border:2px solid var(--gold);margin-left:.8rem}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>Honest Local <span class="hl">SEO Playbook.</span></h1>
+    <p class="deck">Here's exactly how my garage door client hit the <strong>top three in Google Maps in 60 days</strong>. No ads, no paid leads, nothing. The full roadmap — no hype, no stopwatch.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 6 min read</span><span>&#x1F9EE; Practitioner framework</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <!-- REPLACE VXWpJqNp1aI with the published video ID before zipping -->
+      <iframe src="https://www.youtube.com/embed/VXWpJqNp1aI" title="Honest Local SEO Playbook."
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">A garage door client came to me with no calls and no visibility in Google. Sixty days later he was in the top three of the map pack, phone ringing. This is everything I did — the full roadmap, in order.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>The 60-day result</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01-result.png" alt="Before and after: no calls and nowhere in Google, then top three in 60 days with the phone ringing">
+  <figcaption>No calls, nowhere in Google — then top three in 60 days.</figcaption>
+</figure>
+<p class="reveal">When he came to me: no calls, and nowhere in Google. Sixty days later: top three in the map pack, phone ringing. No ads, no paid leads — all of it from local SEO.</p>
+<p class="reveal">And honestly, it wasn't complicated — because here's the thing nobody tells you: <strong>Google literally shows you exactly how.</strong> The businesses already ranking are a public blueprint. This playbook is just reading it, then out-executing it.</p>
+
+<h2 class="sec reveal"><span class="n">2</span>Study the top 5</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-02-top5.png" alt="Study checklist: category, services, photos, reviews, posts">
+  <figcaption>Study the top 5 like they were your own clients.</figcaption>
+</figure>
+<p class="reveal">First step: I typed his main keyword and his city into Google and found the top 5. Then I studied them like they were my own clients — because Google already ranked them, which means Google already told me what it wants.</p>
+<p class="reveal">This is the highest-leverage hour in local SEO. Everything on the ranking page is public: their categories, their services, their photos, their review counts and velocity, how often they post. That becomes your target list.</p>
+
+<h2 class="sec reveal"><span class="n">3</span>The audit</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03-audit.png" alt="Audit list: category, photos real or AI slop, business name keyword stuffing check">
+  <figcaption>Open each profile, one by one. That list becomes the job.</figcaption>
+</figure>
+<p class="reveal">I asked one question: <em>if these five were my clients, what would I do for them?</em> Then I opened each profile, one by one, and audited everything — category, services vs website match, real photos vs AI slop, review count and velocity, posting frequency, and anything spammy like fake reviews or keywords stuffed into the business name.</p>
+<p class="reveal">I wrote it all down. That list became the job.</p>
+
+<h2 class="sec reveal"><span class="n">4</span>Beat those five</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04-beat.png" alt="The philosophy: can't copy location and history, can beat everything else">
+  <figcaption>Don't aim for perfect. Aim to beat five.</figcaption>
+</figure>
+<p class="reveal">My task was not to make my client the best business in the world. My task was just to <strong>beat those five</strong>. That's it.</p>
+<p class="reveal">An honest caveat: you can't copy their location, and you can't copy ten years of review history. But everything else — profile completeness, review velocity, content, consistency — that's all effort. Effort is the part you control.</p>
+<div class="takeaway good reveal"><strong>The rule:</strong> don't chase "best." Chase better than the five businesses above you.</div>
+
+<h2 class="sec reveal"><span class="n">5</span>Fix the profile</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-05-profile.png" alt="Profile fix: primary category is the number one factor, about one third of local ranking weight">
+  <figcaption>Category first. Then everything.</figcaption>
+</figure>
+<p class="reveal">The category is the single highest-weight factor in local search. Whitespark's 2025 study — 47 local SEO experts scoring 187 factors — put the <strong>primary category</strong> at number one, and Google Business Profile signals at roughly a third of map-pack weight. So I checked what the top five were using and picked the one matching his main money keyword — "garage door repair service," not something vague like "contractor."</p>
+<p class="reveal">One primary category, chosen carefully — secondaries can support it, but the primary does the heavy lifting. Then everything else: real business name with no keyword stuffing, full hours including holidays, every service with a real description, photos, the booking link. That free profile alone does about a third of the local ranking work.</p>
+
+<h2 class="sec reveal"><span class="n">6</span>Close the review gap</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-06-reviews.png" alt="The review gap: top five around 60 reviews, him around 35, fix is ask and reply">
+  <figcaption>60 vs 35. The fix is asking.</figcaption>
+</figure>
+<p class="reveal">Say the top five averaged around 60 reviews and he had around 35. The fix is embarrassingly simple: <strong>ask.</strong> Most happy customers will leave a review if you ask — businesses that ask get far more reviews than businesses that wait. He emailed past customers with a direct one-click link. Within a week, reviews started coming in — a few a day, steady.</p>
+<p class="reveal">Two details matter. First, steady beats sudden — fifty reviews overnight looks fake, and sudden bursts can trip Google's spam filters. Second, reply to every review, because the next customer reads your replies before they call.</p>
+<div class="takeaway warn reveal"><strong>Don't buy reviews.</strong> Google's guidelines now treat undisclosed incentivized reviews as violations — asking is free and safe, buying risks the whole profile.</div>
+
+<h2 class="sec reveal"><span class="n">7</span>Fix the website</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-07-website.png" alt="Review placement: homepage gets overall reviews, service pages get reviews for that exact job">
+  <figcaption>Homepage: overall proof. Service page: specific proof.</figcaption>
+</figure>
+<p class="reveal">Two problems on his site. First, the homepage didn't match the primary category — and the homepage represents the whole business, so that mismatch confuses Google. I fixed the homepage to clearly match his main service.</p>
+<p class="reveal">Second, the reviews were buried at the bottom of the page. That sucks, because <strong>everyone reads reviews</strong> — before anyone calls, they want to know what other people said. So the reviews moved up: the homepage carries the <em>overall</em> reviews, and every service page carries reviews <em>about that exact work</em>.</p>
+<p class="reveal">Think about it: a man with a broken spring lands on the spring-repair page and immediately sees reviews from people who had the same problem. Before he finishes the page, he already believes these guys do this work — sometimes he just calls. The longer a customer waits and researches, the more likely he searches someone else. Clear direction wins: homepage, overall proof; service page, specific proof.</p>
+
+<h2 class="sec reveal"><span class="n">8</span>60 days of posting</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-08-60days.png" alt="The 60 days: first movement in weeks one to four, top three by day 60, the secret is no gaps">
+  <figcaption>Still posting at day 60. That was the whole secret.</figcaption>
+</figure>
+<p class="reveal">Those 60 days weren't waiting — they were posting. Every single week: the team working, the real van pulling up to the site, before-and-after shots, even the funny moments. Short videos explaining why a problem happens and how it was fixed. Videos, photos, posts — no gaps.</p>
+<p class="reveal">Almost nobody ranks in 30 days. But the ones still posting at day 60 win. And here's the deeper truth this whole playbook rests on: <strong>you can fool Google for a month, but your customer is a human, not an algorithm.</strong> Real work, shown consistently, is what both of them end up trusting.</p>
+<div class="rule reveal"><p><span class="r1">No hype.</span><span class="r2">No stopwatch.</span><span class="r3">Just the parts that work.</span></p></div>
+
+<h2 class="sec reveal">Sources</h2>
+<p class="reveal" style="font-size:1.05rem">Every research claim in this video comes from a named source:</p>
+<ul class="reveal" style="font-size:1.05rem;line-height:2">
+<li><strong><a href="https://www.searchenginejournal.com/ranking-factors/relevance-distance-prominence/" target="_blank" rel="noopener">Search Engine Journal — Google's local ranking factors</a></strong> — local results are based primarily on relevance, distance, and prominence; more reviews and positive ratings can improve local ranking.</li>
+<li><strong><a href="https://cubecreative.design/blog/small-business-marketing/seo-vs-geo-local-search-home-service" target="_blank" rel="noopener">Cube Creative — Whitespark 2025 local search ranking factors</a></strong> — 47 experts, 187 factors: GBP signals ~32%, reviews ~20%, primary category the top individual factor.</li>
+<li><strong><a href="https://streetfightmag.com/2025/11/13/streets-ahead-whitespark-local-ranking-factors-and-local-lists-in-gbp/" target="_blank" rel="noopener">Street Fight — Whitespark 2025 breakdown</a></strong> — secondary coverage confirming the factor weights.</li>
+<li><strong><a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noopener">Google Search Essentials — spam policies</a></strong> — scaled content abuse: creating large amounts of unoriginal content to manipulate rankings, regardless of how it's produced.</li>
+<li><strong><a href="https://cited.so/blog/google-maps-ranking-for-local-businesses" target="_blank" rel="noopener">Cited.so — Google Maps ranking factors</a></strong> — steady review velocity outranks sudden bursts; businesses that ask generate far more reviews.</li>
+<li><strong><a href="https://designloud.com/seo-case-study-home-services-185-percent-growth/" target="_blank" rel="noopener">DesignLoud — HVAC SEO case study</a></strong> — dedicated location pages with unique local content: #3–5 rankings in 8 cities within 8 weeks, 185% traffic growth (practitioner report).</li>
+</ul>
+
+<h2 class="sec reveal">A note on what's real</h2>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">This is a practitioner case study, not a research paper. The client, the 60 days, the top-three result, and the method are real. The review counts in section 6 are illustrative "let's say" figures. The Whitespark figures are via secondary coverage of the 2025 report. What's hype-free here by design: no ranking-time guarantees, no bulk-citation magic, no bought reviews.</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://www.youtube.com/watch?v=VXWpJqNp1aI" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>YouTube</h4><p>Watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Honest Local SEO Playbook."<br>The client story and method are real; review counts in section 6 are illustrative "let's say" figures. Research claims are from their named sources.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://www.youtube.com/watch?v=VXWpJqNp1aI" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+
