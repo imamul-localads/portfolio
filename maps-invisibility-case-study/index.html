@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Google Maps Hides Your Business — Case Study</title>
+<meta name="description" content="Most owners invisible on Google Maps are fixing the wrong problem. The three kinds of invisibility — geographic, category, authority — how to tell which one you have, and the right fix for each.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Google Maps Hides Your Business.">
+<meta property="og:description" content="Three kinds of Google Maps invisibility — geographic, category, authority. Diagnose yours before you fix anything.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Why Google Maps Hides Your Business.">
+<style>
+  :root{
+    --bg:#0a0f1e; --bg2:#0d1526; --card:#111b31; --line:rgba(255,255,255,.09);
+    --ink:#f4f6fb; --muted:#a7b1c7; --amber:#f5b942; --coral:#ff6b5e; --green:#34d399;
+    --teal:#5eead4; --blue:#60a5fa; --gold:#f5c566;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:1.28rem;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#0a0f1e}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0%;z-index:99;
+    background:linear-gradient(90deg,var(--gold),var(--coral))}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.5rem}
+
+  header.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 50% -10%,rgba(245,197,102,.10),transparent 60%),var(--bg)}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(900px 420px at 85% 110%,rgba(255,107,94,.08),transparent 60%)}
+  .kicker{display:inline-block;font-size:.95rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:1.6rem}
+  h1{font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.6rem}
+  h1 .hl{color:var(--gold)}
+  .deck{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.6;color:var(--muted);max-width:660px;margin-bottom:2.2rem}
+  .deck strong{color:var(--ink)}
+  .meta{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:1.02rem;color:var(--muted)}
+  .meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);
+    font-size:.95rem;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+  .video-sec{padding:4.5rem 0 1rem}
+  .video-embed{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:linear-gradient(135deg,#0d1526,#131f3a);
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  article{padding:3rem 0 2rem}
+  article p{margin-bottom:1.9rem;color:#dbe2f0}
+  article p.lead{font-size:clamp(1.5rem,3.4vw,1.95rem);line-height:1.65;color:var(--ink);font-weight:500}
+  h2.sec{font-size:clamp(2rem,5.5vw,3rem);line-height:1.15;font-weight:800;letter-spacing:-.015em;
+    margin:4.5rem 0 1.6rem}
+  h2.sec .n{color:var(--gold);margin-right:.7rem}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,197,102,.07);
+    padding:1.6rem 1.8rem;border-radius:0 14px 14px 0;margin:2.6rem 0;font-size:1.22rem;color:var(--ink)}
+  .takeaway strong{color:var(--gold)}
+  .takeaway.warn{border-left-color:var(--coral);background:rgba(255,107,94,.07)}
+  .takeaway.warn strong{color:var(--coral)}
+  .takeaway.good{border-left-color:var(--green);background:rgba(52,211,153,.07)}
+  .takeaway.good strong{color:var(--green)}
+
+  figure.diagram{margin:2.6rem 0;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  figure.diagram img{display:block;width:100%;height:auto}
+  figure.diagram figcaption{padding:1rem 1.4rem;font-size:1.02rem;color:var(--muted);
+    background:rgba(255,255,255,.03);border-top:1px solid var(--line)}
+
+  table.math{width:100%;border-collapse:collapse;margin:2rem 0;font-size:1.15rem}
+  table.math th,table.math td{padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+  table.math th{color:var(--muted);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  table.math td.c{text-align:center}
+  table.math tr.hl td{color:var(--coral)}
+  table.math tr.good td{color:var(--green)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .rule{background:linear-gradient(135deg,#131f3a,#0d1526);border:1px solid var(--line);
+    border-radius:22px;padding:3.2rem 2rem;text-align:center;margin:4rem 0}
+  .rule p{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.5;margin:0}
+  .rule p span{display:block}
+  .rule p .r1{color:var(--coral)} .rule p .r2{color:var(--amber)} .rule p .r3{color:var(--green)}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:1rem;text-align:center}
+
+  .social-sec{padding:1rem 0 3.5rem}
+  .social-sec h3{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center;margin-bottom:.6rem}
+  .social-sec>p{text-align:center;color:var(--muted);margin-bottom:2.2rem;font-size:1.15rem}
+  .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:640px){.socials{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .soc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem;
+    text-align:center;text-decoration:none;color:var(--ink);transition:transform .2s}
+  .soc:hover{transform:translateY(-4px)}
+  .soc h4{font-size:1.25rem;margin:.9rem 0 .3rem}
+  .soc p{color:var(--muted);font-size:1rem;margin:0}
+  .sic{width:46px;height:46px;margin:0 auto;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .sic svg{width:24px;height:24px;fill:#fff}
+  .soc.yt .sic{background:#ff0033}.soc.li .sic{background:#0a66c2}.soc.fb .sic{background:#1877f2}
+
+  .timeline{width:100%;border-collapse:collapse;margin:1.6rem 0 2.4rem;font-size:1.1rem}
+  .timeline th{text-align:left;padding:.9rem 1.1rem;color:var(--gold);border-bottom:2px solid var(--line);font-size:.95rem;letter-spacing:.12em}
+  .timeline td{padding:.9rem 1.1rem;border-bottom:1px solid var(--line);color:var(--ink)}
+  .timeline td:first-child{white-space:nowrap;font-weight:700;color:var(--gold)}
+  .timeline tr:last-child td{border-bottom:none}
+  /* ---- fancy text animation pack ---- */
+  h2.sec{position:relative;padding-bottom:.6rem}
+  h2.sec::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;
+    background:linear-gradient(90deg,var(--gold),rgba(245,185,66,.15));
+    border-radius:2px;transition:width 1s ease .25s}
+  h2.sec.in::after{width:88px}
+  h2.sec .n{display:inline-block;transform:scale(.6);opacity:0;
+    transition:transform .55s cubic-bezier(.2,1.7,.4,1) .15s,opacity .4s ease .15s}
+  h2.sec.in .n{transform:scale(1);opacity:1}
+  .kicker{position:relative;overflow:hidden}
+  .kicker::before{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(245,185,66,.35),transparent);
+    animation:sheen 3.2s ease-in-out infinite}
+  @keyframes sheen{0%{left:-80%}55%,100%{left:130%}}
+  figure.diagram img{transform:scale(1.07);transition:transform 1.5s cubic-bezier(.2,.7,.2,1)}
+  figure.diagram.in img{transform:scale(1)}
+  figure.diagram figcaption{opacity:0;transform:translateX(-14px);
+    transition:opacity .6s ease .35s,transform .6s ease .35s}
+  figure.diagram.in figcaption{opacity:1;transform:none}
+  .lead .w{display:inline-block;opacity:0;transform:translateY(10px);
+    transition:opacity .45s ease,transform .45s ease}
+  .lead.in .w{opacity:1;transform:none}
+  .takeaway{border-left:4px solid var(--gold);background:rgba(245,185,66,.07);
+    padding:1.1rem 1.4rem;border-radius:0 12px 12px 0;margin:1.8rem 0;font-size:1.12rem}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">CASE STUDY</span>
+    <h1>Why Google Maps <span class="hl">Hides Your Business.</span></h1>
+    <p class="deck">Most owners who can't be found on Google Maps aren't lazy — they're <strong>fixing the wrong problem</strong>. There are three kinds of invisibility, and each one has a different fix. This is how to tell <strong>which one you have</strong>.</p>
+    <div class="meta">
+      <span>&#x1F4F9; Companion video</span><span>&#x23F1; 7 min read</span><span>&#x1F9ED; Diagnosis framework</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<section class="video-sec">
+  <div class="wrap">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/eycNXK7VGJ8" title="Why Google Maps Hides Your Business (3 Problems, 3 Fixes)"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<article>
+<div class="wrap">
+
+<p class="lead reveal">Ask a room of local business owners why Google Maps doesn't show them, and you'll hear the same sentence in different words: "I did everything and nothing moved." Usually, they really did work hard. They filled the profile, posted photos, asked for reviews, fixed the website. The effort wasn't the problem. The diagnosis was. Three different problems produce the exact same symptom — nobody finds you — and a fix that cures one does nothing for the other two.</p>
+
+<h2 class="sec reveal">Three problems, one symptom</h2>
+<p class="reveal">Google's own documentation reduces local ranking to three factors: <strong>relevance</strong> (how well a profile matches the search), <strong>distance</strong> (how far the business is from the searcher), and <strong>prominence</strong> (how well known and trusted the business appears to be). The three invisibility problems map onto how those factors fail in practice — and each one announces itself differently, if you know what to look at.</p>
+<table class="timeline reveal">
+  <tr><th>WHAT YOU SEE</th><th>YOUR PROBLEM</th><th>FIRST FIX</th></tr>
+  <tr><td>Calls near your base, silence a few miles out</td><td><strong>Geographic</strong></td><td>Build area evidence</td></tr>
+  <tr><td>Complete profile, but wrong searches — or no searches at all</td><td><strong>Category</strong></td><td>One primary drawer</td></tr>
+  <tr><td>You used to rank and vanished — or you're new and barely shown</td><td><strong>Authority</strong></td><td>Build customer proof</td></tr>
+</table>
+<p class="reveal">Run the symptom check first. It takes minutes, and it decides everything that follows — because months spent fixing the wrong problem is the most expensive outcome in local search.</p>
+
+<h2 class="sec reveal"><span class="n">1</span>Geographic: Google doesn't trust your reach</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-01.png" alt="A gold pin with a small glowing radius on a street map, houses outside the circle sitting in the dark">
+  <figcaption>The trusted radius: inside it, you get recommended. Outside it, you effectively don't exist.</figcaption>
+</figure>
+<p class="reveal">The pattern is distinctive. The phone rings from customers close to the business — the same street, the same neighbourhood. A few miles further out, silence. Not fewer calls. None. A garage door company can be busy on its own doorstep and completely invisible five to ten miles away. An HVAC contractor can hold the number one spot on his own street and not exist two miles north.</p>
+<p class="reveal">Nothing here is broken. Google knows the business exists and roughly where it sits. What it lacks is <strong>evidence</strong> — enough proof that this business genuinely serves the wider area to recommend it there with confidence. Distance is one of Google's three named factors, and research firm Whitespark's annual Local Search Ranking Factors survey places proximity at the top of the local-pack factors, at roughly <strong>55% of what decides the results</strong>. Google will not spend that weight on a business whose evidence stops at its own street.</p>
+<p class="reveal">"Local" is also not one fixed radius. It is whatever distance customers of that trade normally travel: a garage door repair might draw from about three miles, while an HVAC engineer is routinely hired from fifteen. Google models this per industry. The business doesn't choose its radius — it earns the right to be considered inside it.</p>
+<figure class="diagram reveal">
+  <img src="images/fig-02.png" alt="Concentric gold rings expanding outward from a map pin, carrying stars, pages and pins across a street map">
+  <figcaption>Evidence compounds: every area signal pushes the trusted radius a little further out.</figcaption>
+</figure>
+<p class="reveal">The fix is therefore not a setting but a body of proof, built over time. Directory citations that mention the areas served. Website pages written about the specific towns and neighbourhoods covered. Reviews in which customers naturally name where they live. Posts that reference real jobs in real places. Each one tells Google the same sentence — <em>this business serves this area, and real customers there vouch for it</em> — and the trusted radius grows as the sentence repeats.</p>
+<div class="takeaway reveal"><strong>The rule:</strong> Google extends your reach only as far as your evidence reaches. Build the evidence, and the map follows.</div>
+
+<h2 class="sec reveal"><span class="n">2</span>Category: Google doesn't know what you are</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-03.png" alt="A filing cabinet: one drawer open and glowing gold with a map pin inside, another drawer fallen out with papers spilling">
+  <figcaption>One business, one drawer. If Google can't choose the drawer, your profile stays on the desk.</figcaption>
+</figure>
+<p class="reveal">The second problem is quieter, because everything looks healthy. The profile is 100% complete. Photos, reviews, hours — all present. Yet the business surfaces for the wrong searches, or for none. The cause is classification. Think of Google as a filing cabinet: every profile must go into one drawer before it can be retrieved. When the signals disagree about which drawer, Google doesn't guess. It leaves the profile on the desk.</p>
+<p class="reveal">This fails in two ways. The first is <strong>too many services fighting for the same drawer</strong> — an installer who fits CCTV cameras, alarm systems, and video-conferencing rigs is three businesses aimed at three different customers, and the profile reads as none of them clearly. Google files it somewhere vague, where no ideal customer is looking. The second failure is <strong>the wrong drawer entirely</strong>: the primary category names one service while the profitable work — and the whole website — is about another. Category and website point at different drawers, so the profile is filed confidently under neither.</p>
+<p class="reveal">The primary category carries this much weight because it is the strongest classification signal a profile sends: Whitespark's ranking-factors research puts the correct primary category at the very top of the relevance actions an owner controls. Which makes the fix a decision, not a task. <strong>You only get one primary drawer.</strong> Choose it with a single question: <em>if Google sent you ten customers tomorrow, all searching for one of your services, which service would make the biggest difference to your business?</em> That service becomes the primary category. Secondary categories, the services list, and the website's pages then arrange themselves behind it, supporting one clear identity instead of arguing about three.</p>
+<div class="takeaway reveal"><strong>The rule:</strong> one business, one primary drawer — picked by profit, not by habit. Everything else on the profile supports it.</div>
+
+<h2 class="sec reveal"><span class="n">3</span>Authority: Google doesn't trust you — yet, or anymore</h2>
+<figure class="diagram reveal">
+  <img src="images/fig-04.png" alt="Two shields on a dark background: one gold but cracked, the other a faint hollow outline, with five small gold stars beneath">
+  <figcaption>Authority, two ways: the cracked shield of trust lost, and the empty outline of trust never built.</figcaption>
+</figure>
+<p class="reveal">The third problem is the hardest, not because it is complicated but because it has no shortcut. It is a deficit in Google's third factor, prominence — the accumulated proof that a business is known and trusted. And it arrives by two opposite roads.</p>
+<p class="reveal">The first road is <strong>trust lost</strong>. A profile can hold the first page of the map for years — seven years of visibility, seven years of calls — and then lose its listing to a profile problem. Even after a long fight for reinstatement, the business can return to find everything gone: competitors occupying its keywords, its history no longer counting, Google treating it as a stranger. The second road is <strong>trust never built</strong>: a brand-new business with a flawless profile — categories right, website right, everything complete — that Google still barely shows, for the simple reason that no history and no customer signals exist yet. Nothing is wrong. Nothing has been proven, either.</p>
+<p class="reveal">Both roads lead to the same repair, and it runs through customers, not settings. Find out why customers actually chose the business — ask them, and capture the answer in their own words. Then make it easy for those words to become public proof: reviews that describe the real work, photos of real jobs taken by real customers, posts that show the business operating in its area. Prominence, in Google's own description, is partly built from exactly this material — the reviews a business has and the information about it across the web. Real customers, real words, real photos, accumulated steadily: that is the whole method, and there is no faster legitimate one.</p>
+<div class="takeaway warn reveal"><strong>The warning:</strong> authority is the one problem that cannot be rushed. Bursts and shortcuts are how profiles lose the little trust they have.</div>
+
+<h2 class="sec reveal">The diagnosis, as a checklist</h2>
+<table class="timeline reveal">
+  <tr><th>STEP</th><th>DO THIS</th><th>THE HONEST CHECK</th></tr>
+  <tr><td>1</td><td>Match your symptom to the table above</td><td>One problem, named — before touching anything</td></tr>
+  <tr><td>2</td><td>Geographic → build area evidence over time</td><td>Citations, pages, reviews and posts naming your areas</td></tr>
+  <tr><td>3</td><td>Category → one primary drawer, chosen by profit</td><td>Website and profile tell the same one story</td></tr>
+  <tr><td>4</td><td>Authority → build customer proof, steadily</td><td>Real words and photos; no bursts, no shortcuts</td></tr>
+</table>
+<div class="rule reveal"><p><span class="r1">Diagnose first.</span><span class="r2">The wrong fix wastes months.</span><span class="r3">Find the right hole. Fix the hole. Then grow.</span></p></div>
+
+<h2 class="sec reveal">Sources</h2>
+<p class="reveal" style="font-size:1.05rem">The research claims in this breakdown come from named sources:</p>
+<ul class="reveal" style="font-size:1.05rem;line-height:2">
+<li><strong><a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener">Google Business Profile Help — Tips to improve your local ranking on Google</a></strong> — local results are based mainly on relevance, distance, and prominence; prominence is informed by reviews and information about the business across the web.</li>
+<li><strong>Whitespark — Local Search Ranking Factors</strong> (annual expert survey) — proximity is the largest single local-pack factor, estimated around 55%; the correct primary category is the top-ranked relevance action an owner controls.</li>
+</ul>
+
+<h2 class="sec reveal">A note on what's real</h2>
+<p class="reveal" style="font-size:1.05rem;color:var(--muted)">This is a diagnostic framework — a way to name the problem before spending money or months on the wrong repair. The three problems overlap in real life, and the fixes borrow from the same toolbox as any honest local-SEO work: no timeline promises, no ranking guarantees, no tricks. What the framework changes is the order of operations: diagnosis first, because a month of correct work on the right problem beats a year of hard work on the wrong one.</p>
+
+</div>
+</article>
+
+<section class="social-sec">
+<div class="wrap">
+  <h3 class="reveal">&#x1F4F2; Let's connect</h3>
+  <p class="reveal">Follow for more breakdowns on ads, tracking, and getting customers — not just leads.</p>
+  <div class="socials">
+    <a class="soc yt reveal" href="https://www.youtube.com/watch?v=eycNXK7VGJ8" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></div>
+      <h4>Ads for Service Businesses</h4><p>by Imamul Hassan — watch the full video</p>
+    </a>
+    <a class="soc li reveal" href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+      <h4>LinkedIn</h4><p>Connect with me</p>
+    </a>
+    <a class="soc fb reveal" href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener">
+      <div class="sic"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></div>
+      <h4>Facebook</h4><p>Follow the page</p>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Case study companion to the video "Why Google Maps Hides Your Business (3 Problems, 3 Fixes)."<br>Three kinds of invisibility — geographic, category, authority — and how to tell which one is yours before you fix anything.</p>
+    <p style="margin-top:1.2rem">
+      <a href="https://www.linkedin.com/in/imamul-hassan-26a21a435/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">LinkedIn</a>&middot;<a href="https://www.facebook.com/profile.php?id=61572277707806" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">Facebook</a>&middot;<a href="https://www.youtube.com/watch?v=eycNXK7VGJ8" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;margin:0 .8rem">YouTube</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const p = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+    bar.style.width = p + '%';
+  }, {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // word-stagger on the lead paragraph
+  document.querySelectorAll('.lead').forEach(function(p){
+    var words = p.textContent.trim().split(/\s+/);
+    p.innerHTML = words.map(function(w,i){
+      return '<span class="w" style="transition-delay:'+(i*28)+'ms">'+w+'</span>';
+    }).join(' ');
+  });
+</script>
+</body>
+</html>
